@@ -1,0 +1,215 @@
+
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #0f172a; /* Dark blue background */
+  color: white;
+}
+
+/* Hide the radio buttons used for logic */
+input[type="radio"] {
+  display: none;
+}
+
+.container {
+  width: 80%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+/* Header and Logo styling */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-top: 20px;
+}
+
+.brand-logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 200px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.header-text h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.header-text p {
+  color: #ccc;
+}
+
+/* Card styling */
+.card {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+/* Buttons (Labels acting as buttons) */
+.control-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.toggle {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+}
+
+.toggle:hover {
+  background-color: #2563eb;
+}
+
+.default-toggle {
+  background-color: #64748b;
+}
+
+.default-toggle:hover {
+  background-color: #475569;
+}
+
+/* Traffic Light Section */
+.model {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.signal {
+  background-color: #020617;
+  padding: 20px;
+  border-radius: 20px;
+  width: 120px;
+  border: 2px solid #334155;
+}
+
+.bulb {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 10px auto;
+  opacity: 0.2; /* Lights are dim by default */
+}
+
+.red { background-color: #ef4444; }
+.amber { background-color: #f59e0b; }
+.green { background-color: #22c55e; }
+
+.status-box {
+  background-color: #0f172a;
+  padding: 20px 40px;
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  border: 2px solid #334155;
+  text-align: center;
+}
+
+.rule-note {
+  margin-top: 20px;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+/* ========================================================
+   LOGIC WITHOUT JAVASCRIPT (Using checked radio buttons)
+   ======================================================== */
+
+/* 1. Default state */
+#default-btn:checked ~ .container .amber { opacity: 1; }
+#default-btn:checked ~ .container .status-text::before { content: "CAUTION"; color: #f59e0b; }
+
+/* 2. Emergency state */
+#emergency-btn:checked ~ .container .green { opacity: 1; }
+#emergency-btn:checked ~ .container .status-text::before { content: "EMERGENCY (GO)"; color: #22c55e; }
+
+/* 3. Heavy Traffic state */
+#heavy-btn:checked ~ .container .green { opacity: 1; }
+#heavy-btn:checked ~ .container .status-text::before { content: "GO"; color: #22c55e; }
+
+/* 4. Pedestrian state */
+#pedestrian-btn:checked ~ .container .green { opacity: 1; }
+#pedestrian-btn:checked ~ .container .status-text::before { content: "GO"; color: #22c55e; }
+
+/* 5. Accident state */
+#accident-btn:checked ~ .container .red { opacity: 1; }
+#accident-btn:checked ~ .container .status-text::before { content: "STOP"; color: #ef4444; }
+
+/* 6. Maintenance state */
+#maintenance-btn:checked ~ .container .red { opacity: 1; }
+#maintenance-btn:checked ~ .container .status-text::before { content: "STOP"; color: #ef4444; }
+
+/* Mobile View */
+@media (max-width: 720px) {
+  .brand-logo {
+    position: static;
+    display: block;
+    margin: 0 auto 20px auto;
+  }
+  
+  .model {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+/* ========================================================
+   TRUTH TABLE STYLING
+   ======================================================== */
+details {
+  background-color: #1e293b;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  overflow: hidden;
+}
+
+details > summary {
+  list-style: none; /* for newer browsers */
+}
+details > summary::-webkit-details-marker {
+  display: none; /* for older Safari */
+}
+
+.table-container {
+  max-height: 400px;
+  overflow-y: auto;
+  background-color: #0f172a;
+}
+
+.truth-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.truth-table th, .truth-table td {
+  padding: 10px;
+  border: 1px solid #334155;
+}
+
+.truth-table th {
+  background-color: #3b82f6;
+  position: sticky;
+  top: 0;
+}

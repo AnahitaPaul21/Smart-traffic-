@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Traffic Signal System</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Hidden radio buttons that control the logic without Javascript -->
+  <input type="radio" name="traffic" id="default-btn" checked>
+  <input type="radio" name="traffic" id="emergency-btn">
+  <input type="radio" name="traffic" id="heavy-btn">
+  <input type="radio" name="traffic" id="pedestrian-btn">
+  <input type="radio" name="traffic" id="accident-btn">
+  <input type="radio" name="traffic" id="maintenance-btn">
+
+  <div class="container">
+    <header>
+      <img class="brand-logo" src="https://ncr.christuniversity.in/images/logo.png" alt="Christ College Logo" />
+      <div class="header-text">
+        <h1>Smart Traffic Signal System</h1>
+        <p>Use the buttons to change conditions and see the traffic signal respond.</p>
+      </div>
+    </header>
+
+    <div class="card controls">
+      <h2>Conditions</h2>
+      <div class="control-grid">
+        <!-- Labels that act as clickable buttons for the radios above -->
+        <label for="emergency-btn" class="toggle">Emergency vehicle detected</label>
+        <label for="heavy-btn" class="toggle">Heavy traffic</label>
+        <label for="pedestrian-btn" class="toggle">Pedestrian waiting</label>
+        <label for="accident-btn" class="toggle">Accident reported</label>
+        <label for="maintenance-btn" class="toggle">Road under maintenance</label>
+        <label for="default-btn" class="toggle default-toggle">Reset to Default</label>
+      </div>
+    </div>
+
+    <div class="card model-section">
+      <h2>Traffic Signal</h2>
+      <div class="model">
+        <div class="signal">
+          <div class="bulb red"></div>
+          <div class="bulb amber"></div>
+          <div class="bulb green"></div>
+        </div>
+        
+        <div class="status-box">
+          Status: <span class="status-text"></span>
+        </div>
+      </div>
+      <div class="rule-note">
+        Emergency override > Accident/Maintenance stop > Traffic or Pedestrian go > Default yellow.
+      </div>
+    </div>
+
+    <div class="card truth-table-section" style="padding: 0; border: none; background: transparent;">
+      <details>
+        <summary class="toggle default-toggle" style="width: 100%; box-sizing: border-box; text-align: center; font-weight: bold; font-size: 18px;">
+          View Truth Table
+        </summary>
+        <div class="table-container">
+          <table class="truth-table">
+            <thead>
+              <tr>
+                <th>E</th>
+                <th>H</th>
+                <th>P</th>
+                <th>A</th>
+                <th>M</th>
+                <th>Signal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>F</td><td>F</td><td>F</td><td>F</td><td>F</td><td>🟡 YELLOW</td></tr>
+              <tr><td>T</td><td>F</td><td>F</td><td>F</td><td>F</td><td>🟢 GREEN</td></tr>
+              <tr><td>F</td><td>T</td><td>F</td><td>F</td><td>F</td><td>🟢 GREEN</td></tr>
+              <tr><td>F</td><td>F</td><td>T</td><td>F</td><td>F</td><td>🟢 GREEN</td></tr>
+              <tr><td>F</td><td>F</td><td>F</td><td>T</td><td>F</td><td>🔴 RED</td></tr>
+              <tr><td>F</td><td>F</td><td>F</td><td>F</td><td>T</td><td>🔴 RED</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+  </div>
+</body>
+</html>
