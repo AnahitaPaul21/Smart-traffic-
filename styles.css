@@ -213,3 +213,85 @@ details > summary::-webkit-details-marker {
   position: sticky;
   top: 0;
 }
+
+/* ========================================================
+   FLOWCHART & LOGIC STYLING
+   ======================================================== */
+.flowchart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  padding: 20px 0;
+}
+
+.fc-node {
+  padding: 10px 20px;
+  border: 2px solid #334155;
+  text-align: center;
+  font-weight: bold;
+  background-color: #0f172a;
+  color: white;
+  z-index: 2;
+}
+
+.fc-node.start {
+  border-radius: 20px;
+  background-color: #64748b;
+}
+
+.fc-node.decision {
+  border-radius: 10px;
+  background-color: #3b82f6;
+  border: 2px solid #2563eb;
+}
+
+.green-bg { background-color: #22c55e !important; color: black !important; border-color: #16a34a !important; }
+.red-bg { background-color: #ef4444 !important; color: white !important; border-color: #dc2626 !important; }
+.yellow-bg { background-color: #facc15 !important; color: black !important; border-color: #ca8a04 !important; }
+
+.fc-arrow {
+  font-size: 24px;
+  color: #94a3b8;
+  margin: 5px 0;
+  line-height: 1;
+}
+
+.fc-split {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+  position: relative;
+  margin-top: 10px;
+}
+
+/* Horizontal line connecting the branches */
+.fc-split::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background-color: #94a3b8;
+  z-index: 1;
+}
+
+.fc-branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fc-label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #cbd5e1;
+  background-color: #1e293b; /* match card bg to hide line behind it */
+  padding: 2px 6px;
+  border-radius: 4px;
+  position: relative;
+  top: -10px;
+  z-index: 2;
+}

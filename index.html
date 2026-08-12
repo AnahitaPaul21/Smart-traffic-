@@ -84,6 +84,94 @@
         </div>
       </details>
     </div>
+
+    <!-- Decision Methods & Proofs Section -->
+    <div class="card logic-section" style="padding: 0; border: none; background: transparent; margin-top: 10px;">
+      <details>
+        <summary class="toggle default-toggle" style="width: 100%; box-sizing: border-box; text-align: center; font-weight: bold; font-size: 18px;">
+          View Decision Logic Proofs
+        </summary>
+        <div class="proof-container card" style="margin-top: 15px; text-align: left;">
+          <h3 style="margin-top: 0; color: #3b82f6;">Formal Logic Proofs</h3>
+          
+          <div class="proof-block" style="margin-bottom: 25px;">
+            <h4 style="color: #f8fafc;">1. Modus Ponens (Emergency Priority)</h4>
+            <p><strong>Premise 1:</strong> If an emergency vehicle is detected (E), then the signal must turn GREEN (G). <br/><code style="color: #cbd5e1;">(E → G)</code></p>
+            <p><strong>Premise 2:</strong> An emergency vehicle is detected. <br/><code style="color: #cbd5e1;">(E)</code></p>
+            <p style="border-top: 1px solid #334155; padding-top: 10px; margin-top: 10px;">
+              <strong>Conclusion:</strong> Therefore, the signal must turn GREEN. <br/><code style="color: #22c55e;">(∴ G)</code>
+            </p>
+          </div>
+          
+          <div class="proof-block">
+            <h4 style="color: #f8fafc;">2. Modus Tollens (Accident/Maintenance Stop)</h4>
+            <p><strong>Premise 1:</strong> If the signal is allowed to turn GREEN (G), then there is no accident reported (~A). <br/><code style="color: #cbd5e1;">(G → ~A)</code></p>
+            <p><strong>Premise 2:</strong> There is an accident reported (A). <br/><code style="color: #cbd5e1;">(~(~A))</code></p>
+            <p style="border-top: 1px solid #334155; padding-top: 10px; margin-top: 10px;">
+              <strong>Conclusion:</strong> Therefore, the signal is not allowed to turn GREEN. <br/><code style="color: #ef4444;">(∴ ~G)</code>
+            </p>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <!-- Flowchart Section -->
+    <div class="card flowchart-section" style="padding: 0; border: none; background: transparent; margin-top: 10px;">
+      <details>
+        <summary class="toggle default-toggle" style="width: 100%; box-sizing: border-box; text-align: center; font-weight: bold; font-size: 18px;">
+          View System Flowchart
+        </summary>
+        <div class="flowchart-container card" style="margin-top: 15px;">
+          
+          <!-- Pure CSS Flowchart -->
+          <div class="flowchart">
+            <div class="fc-node start">Start</div>
+            <div class="fc-arrow">↓</div>
+            <div class="fc-node decision">Emergency (E)?</div>
+            
+            <div class="fc-split">
+              <div class="fc-branch">
+                <div class="fc-label">Yes</div>
+                <div class="fc-arrow">↓</div>
+                <div class="fc-node green-bg">GREEN</div>
+              </div>
+              <div class="fc-branch">
+                <div class="fc-label">No</div>
+                <div class="fc-arrow">↓</div>
+                <div class="fc-node decision">Accident (A) OR<br/>Maintenance (M)?</div>
+                
+                <div class="fc-split">
+                  <div class="fc-branch">
+                    <div class="fc-label">Yes</div>
+                    <div class="fc-arrow">↓</div>
+                    <div class="fc-node red-bg">RED</div>
+                  </div>
+                  <div class="fc-branch">
+                    <div class="fc-label">No</div>
+                    <div class="fc-arrow">↓</div>
+                    <div class="fc-node decision">Heavy (H) OR<br/>Pedestrian (P)?</div>
+                    
+                    <div class="fc-split">
+                       <div class="fc-branch">
+                         <div class="fc-label">Yes</div>
+                         <div class="fc-arrow">↓</div>
+                         <div class="fc-node green-bg">GREEN</div>
+                       </div>
+                       <div class="fc-branch">
+                         <div class="fc-label">No</div>
+                         <div class="fc-arrow">↓</div>
+                         <div class="fc-node yellow-bg">YELLOW</div>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </details>
+    </div>
   </div>
 </body>
 </html>
